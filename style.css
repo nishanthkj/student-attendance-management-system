@@ -1,0 +1,85 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+}
+
+.header {
+  background-color: #fff;
+  padding: 20px 0;
+}
+
+.header.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header.logo {
+  display: flex;
+  align-items: center;
+}
+
+.header.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.header.logo h2 {
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.header.nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.header.nav li {
+  margin-right: 20px;
+}
+
+.header.nav li a {
+  color: #333;
+  text-decoration: none;
+}
+
+.hero {
+  background-color: #f8f8f8;
+  padding: 100px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.cta-buttons button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  margin: 0 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cta-buttons button:hover {
+  opacity: 0.8;
+}

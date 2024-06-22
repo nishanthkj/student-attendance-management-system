@@ -110,7 +110,7 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
-button1 {
+button {
   background-color: linear-gradient(to right, #33ccff, #6666ff);
   color: #fff;
   padding: 12px 20px;

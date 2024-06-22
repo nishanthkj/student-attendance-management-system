@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <ul class="nav">
+                <button onclick="goToIndexPage()" style="position: absolute; top: 10px; right: 10px; background-color:#0acb2d; color: #fff; border: none; padding: 10px 20px; cursor: pointer;">Back</button>
+                 <script>
+                    function goToIndexPage() {
+                        // Redirect to another HTML page
+                        window.location.href = 'index.html';
+                    }
+                </script>
+        </div>
+    </header>
+    <div class="container1">
+        <h1  margin-bottom: 20px;>Login</h1>
+        <form action="/submit-login" method="post"></form>
+            <input type="text" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <button onclick="goToDashPage()" class="btn btn-success" style=" padding: 10px 20px; cursor: pointer;">Login</button>
+                <script>
+                    function goToDashPage() {
+                        // Redirect to another HTML page
+                    window.location.href = 'dash.html';
+                        }
+                </script>
+    </form>
+    </div>
+</body>
+</html>
+</body>
+</html>

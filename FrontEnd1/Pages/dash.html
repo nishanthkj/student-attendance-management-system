@@ -6,23 +6,29 @@
 <title>Dashboard App</title>
 <!-- Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet"  type="text/css" href="styles3.css">
+<link rel="stylesheet"  type="text/css"href="styles3.css">
 
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Dashboard App</a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline my-2 my-lg-0 ml-auto">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search Student USN here" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <button class="btn btn-outline-danger my-2 my-sm-0 ml-2" onclick="goToIndexPage()">Logout</button>
-    </div>
-</nav>
+<header>
+    <div class="header-title"> Attendance Management System</div>
+    <button class="btn btn-success logout-button" onclick="goToIndexPage()">Logout</button>
+</header>
 
-<div class="container mt-3">
+<div class="row mt-3 justify-content-center">
+    <div class="col-md-8">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search Student USN here..">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="button">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-3" style="background-image:url('https://e0.pxfuel.com/wallpapers/386/919/desktop-wallpaper-website-background-website-login-page-background.jpg');">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
@@ -54,7 +60,6 @@
             </div>
         </div>
     </div>
-
     <div class="row mt-3 justify-content-center">
         <div class="col-md-10">
             <table class="table text-center">
@@ -67,73 +72,21 @@
                         <th scope="col">Percentage</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                <tbody id="table-body">
                 </tbody>
             </table>
+        </div>
+    </div>
         </div>
     </div>
 
     <div class="row mt-3 justify-content-center">
             <div class="cta-buttons">
-                <button class="btn btn-success" onclick="goToStudentdetailsPage()">Student Details</button>
+                <button class="btn btn-success" onclick="goToStudentdetailsPage()">Add Student Details</button>
             </div>
     </div>
 
 </div>
-
-<!-- Bootstrap JS and dependencies (not necessary for styling) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
     function goToIndexPage() {

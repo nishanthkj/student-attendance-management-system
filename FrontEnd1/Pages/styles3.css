@@ -9,7 +9,23 @@
         padding: 20px;
         background-color: #f0f0f0; /* Optional: Background color for the container */
     }
-
+    header {
+        padding: 20px;
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logout-button {
+        margin-right: 20px;
+        padding: 10px 20px;
+        background-color: black;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
     .search-bar {
         width: 300px;
         border-radius: 5px;

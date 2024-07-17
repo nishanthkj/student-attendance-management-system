@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+from flask import Flask, render_template, jsonify, request, redirect, url_for
+=======
 from flask import Flask, render_template, jsonify, request
+>>>>>>> 9f3a95a5ede23d62d5e02e4feb7ef97bd3c15e91
 import cv2
 import numpy as np
 import face_recognition
@@ -50,7 +54,10 @@ def mark_attendance():
     name = data['name']
 
     # Perform face recognition and mark attendance
+<<<<<<< HEAD
+=======
     # (This part should be similar to your existing while loop logic)
+>>>>>>> 9f3a95a5ede23d62d5e02e4feb7ef97bd3c15e91
     success, img = cap.read()
     imgS = cv2.resize(img, (0, 0), None, 0.25, 0.25)
     imgS = cv2.cvtColor(imgS, cv2.COLOR_BGR2RGB)
@@ -71,7 +78,18 @@ def mark_attendance():
 
     return jsonify({'message': 'Attendance marked successfully'})
 
+<<<<<<< HEAD
+# Route to serve the login page
+@app.route('/login')
+def login():
+    return render_template('login.html')
+@app.route('/attendance')
+def attendance():
+    return render_template('attendance.html')
+# Route to serve the index page
+=======
 # Route to serve the HTML page
+>>>>>>> 9f3a95a5ede23d62d5e02e4feb7ef97bd3c15e91
 @app.route('/')
 def index():
     return render_template('index.html')

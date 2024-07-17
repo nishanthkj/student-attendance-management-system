@@ -3,12 +3,12 @@
 <head>
   <title>Live Image Processing</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles5.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles3.css') }}">
 </head>
 <body>
     <header>
         <div class="header-title"> Attendance Management System</div>
-        <button class="btn btn-success back-button" onclick="goToIndexPage()">Back</button>
+        <a href="/"><button class="btn btn-success back-button" onclick="goToIndexPage()">Back</button></a>
     </header>
   <div class="container">
     <h1 class="text-center">Live Image Processing</h1>

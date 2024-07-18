@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Attendance Record</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/styles5.css' %}" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .logout-button,
+      .back-button {
+        margin-right: 20px;
+        padding: 10px 20px;
+        background-color: black;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      header {
+        padding: 20px;
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-title">Attendance Management System</div>
+      <div class="float-right">
+        <a href="{% url 'index' %}" class="btn btn-success logout-button"
+          >Logout</a
+        >
+        <a href="{% url 'dash' %}" class="btn btn-success back-button">Back</a>
+      </div>
+    </header>
+    <div
+      class="container"
+      style="
+        background-image: url('https://e0.pxfuel.com/wallpapers/386/919/desktop-wallpaper-website-background-website-login-page-background.jpg');
+      "
+    >
+      <h3>Add Student Details</h3>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <form
+                id="attendance-form"
+                method="post"
+                enctype="multipart/form-data"
+              >
+                {% csrf_token %}
+                <h5>Student Information</h5>
+                <div class="form-group">
+                  <label for="studentName">Student Name:</label>
+                  <input
+                    type="text"
+                    id="studentName"
+                    name="name"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="usn">USN:</label>
+                  <input type="text" id="usn" name="usn" class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="studentImage">Student Image:</label>
+                  <input
+                    type="file"
+                    id="studentImage"
+                    name="studentImage"
+                    accept=".jpg, .jpeg, .png"
+                    class="form-control"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Add Student
+                </button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+                <br /><br />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Student</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/styles4.css' %}" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Delete Student</h1>
+      <p>
+        Are you sure you want to delete student {{ student.name }} ({{
+        student.usn }})?
+      </p>
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirm Delete</button>
+        <a
+          href="{% url 'student_details' student.usn %}"
+          class="btn btn-secondary"
+          >Cancel</a
+        >
+      </form>
+    </div>
+  </body>
+</html>

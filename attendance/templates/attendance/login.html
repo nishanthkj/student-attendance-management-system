@@ -1,119 +1,104 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Attendance Management System</title>
-
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'css/styles2.css' %}" />
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-      }
-      header {
-        padding: 20px;
-        background-color: #f8f8f8;
-        border-bottom: 1px solid #ddd;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .header-title {
-        margin: 0;
-        display: flex;
-        align-items: center;
-      }
-      .content {
-        background-image: url("https://e0.pxfuel.com/wallpapers/386/919/desktop-wallpaper-website-background-website-login-page-background.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 90vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        padding: 100px 20px;
-      }
-
-      .login-button {
-        margin-right: 20px;
-        padding: 10px 20px;
-        background-color: black;
-        color: white;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-      .back-button {
-        margin-right: 20px;
-        padding: 10px 20px;
-        background-color: black;
-        color: white;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-      .login-box {
-        background-color: #ddd;
-        padding: 40px;
-        border-radius: 10px;
-        text-align: center;
-      }
-      .login-box input[type="text"],
-      .login-box input[type="password"] {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        margin: 20px 0;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-      }
-      footer {
-        background-color: #f8f9fa;
-        padding: 10px;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-        text-align: center;
-        height: 60px;
-        border-top: 1px solid #dee2e6;
-      }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header-title {
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        .content {
+            background-image: url("https://e0.pxfuel.com/wallpapers/386/919/desktop-wallpaper-website-background-website-login-page-background.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 100px 20px;
+        }
+        .login-box {
+            background-color: #ddd;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .login-button {
+            margin-right: 20px;
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+            height: 60px;
+            border-top: 1px solid #dee2e6;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <div class="header-title">Attendance Management System</div>
-      <a href="/" class="btn btn-success back-button">Back</a>
+        <div class="header-title">Attendance Management System</div>
+        <a href="/" class="btn btn-success back-button">Back</a>
     </header>
 
     <div class="content">
-      <div class="login-box">
-        <input type="text" class="form-control" placeholder="Login" />
-        <input type="password" class="form-control" placeholder="Password" />
-        <a href="/dash/" class="btn btn-success login-button">Login</a>
-      </div>
+        <div class="login-box">
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div>
+                    <button type="submit" class="btn btn-success login-button">Login</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <footer class="bg-light text-center py-3">
-      <div>
-        <p>&copy; 2024 Student Attendance Management System</p>
-      </div>
+        <div>
+            <p>&copy; 2024 Student Attendance Management System</p>
+        </div>
     </footer>
 
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  </body>
-</html>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist

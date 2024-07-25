@@ -1,14 +1,17 @@
 from django.contrib import admin
 from django.urls import path
-from attendance import views
+from attendance.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mark-attendance/', views.mark_attendance, name='mark-attendance'),
-    path('login/', views.login_view, name='login'),
-    path('attendance/', views.attendance_view, name='attendance'),
-    path('dash/', views.dash_view, name='dash'),
-    path('add/', views.add_view, name='details'),
-    path('view-students/', views.view_students, name='view-students'),
-    path('', views.index_view, name='index'),
+    path('', index_view, name='index'),
+    path('login/', login_view, name='login'),
+    path('attendance/', attendance_view, name='attendance'),
+    path('dash/', dash_view, name='dash'),
+    path('add/', add_view, name='add'),
+    path('mark_attendance/', mark_attendance, name='mark_attendance'),
+    path('view_students/', view_students, name='view_students'),
+    path('student/<str:usn>/', student_details_view, name='student_details'),
+    path('student/<str:usn>/delete/', delete_student_view, name='delete_student'),
+    path('details/', details_view, name='details'),  # Ensure this line is added
 ]

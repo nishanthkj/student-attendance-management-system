@@ -53,12 +53,6 @@
         padding: 20px;
         background-color: #f0f0f0;
       }
-      .login-box {
-        background-color: #ddd;
-        padding: 40px;
-        border-radius: 10px;
-        text-align: center;
-      }
       #canvas {
         margin-top: 20px;
       }
@@ -106,17 +100,8 @@
     <div class="content">
       <div class="container">
         <h1 class="text-center">Live Image Processing</h1>
-        <canvas id="canvas" class="mx-auto d-block"></canvas>
-        <label for="studentusn">Student USN:</label>
-        <input
-          type="text"
-          id="studentId"
-          name="studentId"
-          class="form-control"
-        /><br /><br />
-        <button id="start-processing" class="btn btn-success mx-auto d-block">
-          Start Processing
-        </button>
+        <video id="video" width="640" height="480" autoplay></video>
+        <div id="result"></div>
       </div>
     </div>
 
@@ -126,7 +111,52 @@
       </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+      const video = document.getElementById("video");
+
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then((stream) => {
+          video.srcObject = stream;
+        })
+        .catch((err) => {
+          console.error("Error accessing webcam: " + err);
+        });
+
+      function captureAndSendFrame() {
+        const canvas = document.createElement("canvas");
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const dataUrl = canvas.toDataURL("image/png");
+
+        fetch("/mark_attendance/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "X-CSRFToken": "{{ csrf_token }}",
+          },
+          body: "image=" + encodeURIComponent(dataUrl),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status === "success") {
+              document.getElementById("result").textContent =
+                "Identified: " + data.name + " (" + data.usn + ")";
+            } else {
+              document.getElementById("result").textContent =
+                "No face detected or no match found";
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            document.getElementById("result").textContent =
+              "Error processing the frame";
+          });
+      }
+
+      setInterval(captureAndSendFrame, 1000); // Capture and send a frame every second
+    </script>
   </body>
 </html>

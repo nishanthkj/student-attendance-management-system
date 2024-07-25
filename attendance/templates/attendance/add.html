@@ -32,6 +32,14 @@
         justify-content: space-between;
         align-items: center;
       }
+      .container {
+        background-image: url("https://e0.pxfuel.com/wallpapers/386/919/desktop-wallpaper-website-background-website-login-page-background.jpg");
+        background-size: cover;
+        padding: 20px;
+      }
+      .card {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
     </style>
   </head>
   <body>
@@ -44,12 +52,7 @@
         <a href="{% url 'dash' %}" class="btn btn-success back-button">Back</a>
       </div>
     </header>
-    <div
-      class="container"
-      style="
-        background-image: url('https://e0.pxfuel.com/wallpapers/386/919/desktop-wallpaper-website-background-website-login-page-background.jpg');
-      "
-    >
+    <div class="container">
       <h3>Add Student Details</h3>
       <div class="row">
         <div class="col-md-12">
@@ -69,11 +72,18 @@
                     id="studentName"
                     name="name"
                     class="form-control"
+                    required
                   />
                 </div>
                 <div class="form-group">
                   <label for="usn">USN:</label>
-                  <input type="text" id="usn" name="usn" class="form-control" />
+                  <input
+                    type="text"
+                    id="usn"
+                    name="usn"
+                    class="form-control"
+                    required
+                  />
                 </div>
                 <div class="form-group">
                   <label for="studentImage">Student Image:</label>
@@ -83,6 +93,7 @@
                     name="studentImage"
                     accept=".jpg, .jpeg, .png"
                     class="form-control"
+                    required
                   />
                 </div>
                 <button type="submit" class="btn btn-primary">

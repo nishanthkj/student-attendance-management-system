@@ -27,11 +27,16 @@
             <td>{{ student.name }}</td>
             <td>{{ student.usn }}</td>
             <td>
-              <img
-                src="{{ student.get_image_url }}"
-                alt="Student Image"
-                width="100"
-              />
+              <a
+                href="{% url 'student_details' student.usn %}"
+                class="btn btn-info"
+                >View Details</a
+              >
+              <a
+                href="{% url 'delete_student' student.usn %}"
+                class="btn btn-danger"
+                >Delete</a
+              >
             </td>
           </tr>
           {% endfor %}
